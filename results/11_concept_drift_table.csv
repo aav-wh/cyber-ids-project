@@ -1,0 +1,6 @@
+Day,Rows,Attack Types,RF Attack Recall,RF F1-macro,RF FPR,IF Attack Recall,IF F1-macro,IF FPR
+Monday,529481,None (BENIGN only),0.0,1.0,0.0,0.0,0.4445,0.1997
+Tuesday,445645,"FTP-Patator, SSH-Patator",1.0,1.0,0.0,0.2131,0.4655,0.2032
+Wednesday,691406,"DoS slowloris, DoS Slowhttptest, DoS Hulk, DoS GoldenEye, Heartbleed",0.0,0.3887,0.0,0.6924,0.7367,0.2123
+Thursday,458626,"Web Attack � Brute Force, Web Attack � XSS, Web Attack � Sql Injection, Infiltration",0.0,0.4988,0.0,0.0636,0.453,0.1738
+Friday,702718,"Bot, PortScan, DDoS",0.0,0.3707,0.0,0.288,0.5036,0.2615

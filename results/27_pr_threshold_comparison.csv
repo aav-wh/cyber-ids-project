@@ -1,0 +1,4 @@
+Method,Threshold / Setting,Attack Precision,Attack Recall,Attack F1,Attack F2,FPR,Attacks Caught,False Alarms
+IF Contamination=0.10 (NB03),contamination=0.10,0.4650,0.2812,0.3505,0.3054,10.82%,"81,839","94,164"
+IF PR F1-Optimal,t=-0.125065,0.3863,0.9699,0.5525,0.7448,51.52%,"282,231","448,436"
+IF PR F2-Optimal,t=-0.127322,0.3778,0.9883,0.5466,0.7469,54.43%,"287,605","473,730"

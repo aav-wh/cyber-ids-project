@@ -1,0 +1,28 @@
+# Raw data — large CSVs, never bake into the image
+data/*.csv
+data/raw/
+
+# Notebooks and results — not needed at runtime
+notebooks/
+results/
+*.ipynb
+*.ipynb_checkpoints/
+
+# Dev artefacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+
+# Git
+.git/
+.gitignore
+
+# Docs
+*.md
+*.txt
+!requirements.txt

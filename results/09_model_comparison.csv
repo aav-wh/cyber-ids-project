@@ -1,0 +1,12 @@
+,Random Forest,Isolation Forest
+Accuracy,0.7864,0.7388
+Attack Precision,0.9918,0.465
+Attack Recall,0.1489,0.2812
+Attack F1,0.259,0.3505
+F1-macro,0.5671,0.5935
+FPR (False Alarm %),0.04%,10.82%
+FNR (Miss Rate %),85.11%,71.88%
+ROC-AUC,0.8375,0.6801
+Attacks Caught (TP),"43,342","81,839"
+Attacks Missed (FN),"247,659","209,162"
+False Alarms (FP),359,"94,164"

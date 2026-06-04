@@ -1,0 +1,30 @@
+# COM668 Final Year Project — AI-Based Intrusion Detection System
+# Abdulbosit Abdurazzakov | B00979380 | Python 3.11.9
+#
+# Install all dependencies:
+#   pip install -r requirements.txt
+
+# ── Core ML ────────────────────────────────────────────────────────────────────
+pandas==2.3.3
+numpy==2.2.6
+scikit-learn==1.7.2
+imbalanced-learn==0.14.1
+joblib==1.5.3
+
+# ── Explainability ─────────────────────────────────────────────────────────────
+shap>=0.41.0
+
+# ── Visualisation (notebooks) ──────────────────────────────────────────────────
+matplotlib==3.10.8
+seaborn==0.13.2
+
+# ── API ────────────────────────────────────────────────────────────────────────
+flask>=3.0.0
+gunicorn>=21.2.0
+
+# ── Notebooks ──────────────────────────────────────────────────────────────────
+jupyter
+
+# ── Testing ────────────────────────────────────────────────────────────────────
+pytest>=8.0.0
+pytest-flask>=1.3.0
