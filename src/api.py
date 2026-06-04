@@ -35,7 +35,7 @@ from collections import deque
 from threading import Lock
 
 import numpy as np
-from flask import Flask, jsonify, render_template_string, request
+from flask import Flask, jsonify, request
 
 # ── Add project root to sys.path so `ids` package is importable ───────────────
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -436,6 +436,7 @@ setInterval(refresh,3000);setInterval(loadShap,30000);
 </script>
 </body>
 </html>"""
+
 
 _DASHBOARD_HTML = _build_dashboard_html()
 

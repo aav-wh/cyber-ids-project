@@ -8,8 +8,6 @@ Provides functions to compute SHAP values and return serialisable
 summaries for the dashboard API endpoint.
 """
 
-import os
-
 import numpy as np
 import shap
 from sklearn.ensemble import RandomForestClassifier

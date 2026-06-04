@@ -24,11 +24,15 @@ jobs:
         run: pip install flake8
 
       - name: Run flake8
-        # E501 line-too-long excluded (docstrings); W503 is PEP8-compliant style
+        # E501 line-too-long  — docstrings and HTML strings exceed 100 chars
+        # W503  — line break before binary operator (PEP8-compliant)
+        # E221  — multiple spaces before operator (alignment style, intentional)
+        # E402  — module import not at top (sys.path must be set before ids import)
+        # E128  — continuation line indent (cosmetic)
         run: |
           flake8 src/ tests/ \
             --max-line-length=100 \
-            --extend-ignore=E501,W503 \
+            --extend-ignore=E501,W503,E221,E402,E128 \
             --exclude=__pycache__,*.pyc
 
   # ── Unit tests ──────────────────────────────────────────────────────────────
