@@ -9,6 +9,7 @@ An end-to-end machine learning IDS trained on the CICIDS2017 dataset, combining 
 
 ```
 cyber-ids-project/
+├── dashboard.py                    # Streamlit threat intelligence dashboard (8 pages)
 ├── src/
 │   ├── ids/                        # Python package
 │   │   ├── data/loader.py          # CSV loading & cleaning
@@ -17,10 +18,10 @@ cyber-ids-project/
 │   │   ├── models/predict.py       # classify_flow() inference
 │   │   ├── models/evaluate.py      # metrics, confusion matrix, ROC
 │   │   └── explainability/shap_analysis.py  # SHAP feature importance
-│   ├── api.py                      # Flask REST API + live dashboard
+│   ├── api.py                      # Flask REST API (/predict, /predict/batch, /api/shap)
 │   └── demo_request.py             # demo script
 ├── notebooks/                      # Jupyter notebooks (01–09)
-├── tests/                          # pytest test suite (33 tests)
+├── tests/                          # pytest test suite (52 tests)
 ├── data/processed/                 # fitted scaler, encoder, feature names
 ├── models/                         # trained RF + IF .pkl files
 ├── results/                        # plots and evaluation outputs
@@ -35,9 +36,12 @@ cyber-ids-project/
 # Install dependencies
 pip install -r requirements.txt
 
-# Start the API + dashboard
+# Launch the Streamlit dashboard
+python -m streamlit run dashboard.py --server.port 8501
+# → http://localhost:8501
+
+# Launch the Flask REST API (separate terminal)
 python src/api.py
-# → http://localhost:5000/dashboard
 # → http://localhost:5000/health
 
 # Run tests

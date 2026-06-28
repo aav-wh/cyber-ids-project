@@ -1,0 +1,54 @@
+# AI-IDS Detection Rules Configuration
+# COM668 | Abdulbosit Abdurazzakov | B00979380
+#
+# These deterministic signature rules supplement the ML ensemble.
+# A rule match overrides a BENIGN ML decision to ATTACK.
+
+rules:
+  - name: SYN_FLOOD
+    enabled: true
+    description: "High SYN-to-total-packet ratio (SYN flood indicator)"
+    condition:
+      feature: SYN Flag Count
+      operator: ratio_gt
+      numerator: SYN Flag Count
+      denominator: Total Fwd Packets
+      threshold: 0.9
+
+  - name: PORT_SCAN
+    enabled: true
+    description: "Short-duration scan of well-known ports"
+    condition:
+      all:
+        - feature: Flow Duration
+          operator: lt
+          value: 500000
+        - feature: Total Fwd Packets
+          operator: lte
+          value: 2
+        - feature: Destination Port
+          operator: lt
+          value: 1024
+
+  - name: LARGE_OUTBOUND
+    enabled: true
+    description: "Unusually large outbound transfer (potential exfiltration)"
+    condition:
+      feature: Total Length of Fwd Packets
+      operator: gt
+      value: 5000000
+
+  - name: HIGH_PACKET_RATE
+    enabled: true
+    description: "Extremely high packet rate (DDoS indicator)"
+    condition:
+      feature: Flow Packets/s
+      operator: gt
+      value: 100000
+
+thresholds:
+  # Alert severity overrides when rule fires
+  SYN_FLOOD:      HIGH
+  PORT_SCAN:      MEDIUM
+  LARGE_OUTBOUND: HIGH
+  HIGH_PKT_RATE:  CRITICAL

@@ -1,0 +1,40 @@
+# AI-IDS Flask API Configuration
+# COM668 | Abdulbosit Abdurazzakov | B00979380
+
+server:
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
+  workers: 4              # gunicorn worker count
+
+limits:
+  max_batch_size: 1000
+  feed_maxlen: 200
+  request_timeout_s: 30
+
+cors:
+  enabled: true
+  origins:
+    - "http://localhost:3000"
+    - "http://localhost:8080"
+
+rate_limiting:
+  enabled: false          # enable in production
+  requests_per_minute: 600
+  burst: 100
+
+endpoints:
+  health:    /health
+  features:  /features
+  predict:   /predict
+  batch:     /predict/batch
+  dashboard: /dashboard
+  feed:      /api/feed
+  stats:     /api/stats
+  shap:      /api/shap
+
+dashboard:
+  refresh_interval_s: 3
+  shap_refresh_interval_s: 30
+  feed_display_n: 30
+  shap_top_n: 15

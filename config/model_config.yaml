@@ -1,0 +1,36 @@
+# AI-IDS Model Configuration
+# COM668 | Abdulbosit Abdurazzakov | B00979380
+
+random_forest:
+  n_estimators: 150
+  random_state: 42
+  n_jobs: -1
+  class_weight: balanced
+  max_depth: null          # null = unlimited (best for CICIDS2017)
+  min_samples_split: 2
+  min_samples_leaf: 1
+  max_features: sqrt
+
+isolation_forest:
+  contamination: 0.01      # 1% expected anomaly rate in live traffic
+  n_estimators: 100
+  random_state: 42
+  n_jobs: -1
+  bootstrap: false
+
+ensemble:
+  rule: or                 # or | and | voting
+  voting_alpha: 0.70       # RF weight for voting ensemble (IF gets 1-alpha)
+  voting_threshold: 0.50
+
+threshold:
+  default: 0.50
+  optimization_metric: f1  # f1 | recall | precision
+  bootstrap_n_iter: 200
+  bootstrap_alpha: 0.05    # 95% CI
+
+hyperopt:
+  n_iter: 20
+  cv_folds: 3
+  scoring: f1_macro
+  random_state: 42

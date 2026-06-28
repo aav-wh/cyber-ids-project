@@ -1,0 +1,100 @@
+# AI-IDS Feature Group Definitions
+# COM668 | Abdulbosit Abdurazzakov | B00979380
+#
+# Logical groupings of CICIDS2017 features used in SHAP analysis
+# and feature selection notebooks.
+
+groups:
+  flow_volume:
+    description: "Packet and byte count features"
+    features:
+      - Total Fwd Packets
+      - Total Backward Packets
+      - Total Length of Fwd Packets
+      - Total Length of Bwd Packets
+      - Fwd Packet Length Max
+      - Fwd Packet Length Min
+      - Fwd Packet Length Mean
+      - Fwd Packet Length Std
+      - Bwd Packet Length Max
+      - Bwd Packet Length Min
+      - Bwd Packet Length Mean
+      - Bwd Packet Length Std
+
+  flow_timing:
+    description: "Inter-arrival time features"
+    features:
+      - Flow Duration
+      - Flow IAT Mean
+      - Flow IAT Std
+      - Flow IAT Max
+      - Flow IAT Min
+      - Fwd IAT Total
+      - Fwd IAT Mean
+      - Fwd IAT Std
+      - Fwd IAT Max
+      - Fwd IAT Min
+      - Bwd IAT Total
+      - Bwd IAT Mean
+      - Bwd IAT Std
+      - Bwd IAT Max
+      - Bwd IAT Min
+
+  flow_rates:
+    description: "Throughput rate features"
+    features:
+      - Flow Bytes/s
+      - Flow Packets/s
+      - Fwd Packets/s
+      - Bwd Packets/s
+
+  tcp_flags:
+    description: "TCP flag counts"
+    features:
+      - FIN Flag Count
+      - SYN Flag Count
+      - RST Flag Count
+      - PSH Flag Count
+      - ACK Flag Count
+      - URG Flag Count
+      - CWE Flag Count
+      - ECE Flag Count
+
+  header:
+    description: "Packet header features"
+    features:
+      - Destination Port
+      - Protocol
+      - Fwd Header Length
+      - Bwd Header Length
+
+  active_idle:
+    description: "Active and idle time statistics"
+    features:
+      - Active Mean
+      - Active Std
+      - Active Max
+      - Active Min
+      - Idle Mean
+      - Idle Std
+      - Idle Max
+      - Idle Min
+
+top_features_by_mdi:
+  description: "Top 15 features by RF Mean Decrease in Impurity (from notebook 03)"
+  features:
+    - Destination Port
+    - Flow Duration
+    - Fwd Packet Length Max
+    - Bwd Packet Length Max
+    - Flow IAT Mean
+    - Bwd IAT Total
+    - Fwd IAT Total
+    - Flow Bytes/s
+    - Flow Packets/s
+    - Total Length of Fwd Packets
+    - Fwd Packet Length Mean
+    - Total Length of Bwd Packets
+    - Bwd Packet Length Mean
+    - Init_Win_bytes_forward
+    - Init_Win_bytes_backward
